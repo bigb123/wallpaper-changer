@@ -10,6 +10,8 @@ if [ ! -d "$WALLPAPER_PATH" ]; then
     mkdir -p "$WALLPAPER_PATH"
 fi
 
+cd "$WALLPAPER_PATH"
+
 # Checkout latest picture (skip if exist <- no-clobber option)
 #
 # Bing api https link arguments useful info:
