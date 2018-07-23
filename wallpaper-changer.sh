@@ -22,14 +22,14 @@ if [ ! -d "$WALLPAPER_PATH" ]; then
     mkdir -p "$WALLPAPER_PATH" || echo "Cannot create path to store wallpapers"
 
     # Download some latest wallpapers from Bing to provide some randomize.
-    cd "$WALLPAPER_PATH"
+    cd "$WALLPAPER_PATH" || exit 1
     # Bing link parameters explanation is available below.
     for imagelink in $(wget --quiet -O-  'https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=8&mkt=en-AU' | jq -r .images[].url); do
       wget --quiet --no-clobber "https://www.bing.com$imagelink"
     done
 fi
 
-cd "$WALLPAPER_PATH"
+cd "$WALLPAPER_PATH" || exit 1
 # TODO: Remove oldest pictures keeping for example just latest 20 of them.
 
 # Checkout latest picture (skip if exist <- no-clobber option)
