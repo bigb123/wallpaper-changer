@@ -14,7 +14,7 @@ Just run the script. It will be executed once and quit. You can schedule it with
 Cron. This example shows how to execute it every 10 mins:
 
 ```
-*/10 0 * * * bash /path/to/wallpaper-changer.sh
+*/10 * * * * /path/to/wallpaper-changer.sh
 ```
 
 ## Protip
