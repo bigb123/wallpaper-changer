@@ -30,7 +30,18 @@ if [ ! -d "$WALLPAPER_PATH" ]; then
 fi
 
 cd "$WALLPAPER_PATH" || exit 1
-# TODO: Remove oldest pictures keeping for example just latest 20 of them.
+# Remove oldest pictures and keep just a bunch of them
+number_of_wallpapers_to_keep=30
+number_of_current_wallpaper=0
+for wallpaper in $(ls -t); do
+  if [ $number_of_current_wallpaper -lt $number_of_wallpapers_to_keep ]; then
+    # Keep the wallpaper
+    number_of_current_wallpaper=$(($number_of_current_wallpaper+1))
+  else
+    # Remove wallpaper
+    rm "$wallpaper"
+  fi
+done
 
 # Checkout latest picture (skip if exist <- no-clobber option)
 #
