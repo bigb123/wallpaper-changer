@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Downoad latest Bing picture. set random picture to wallpaper and lock screen
+# Downoad latest Bing picture. set random picture as wallpaper and lock screen
 # This script is designed to run with Cron (but can be executed manually, too)
 #
 
