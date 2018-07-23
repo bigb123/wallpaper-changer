@@ -16,3 +16,6 @@ Cron. This example shows how to execute it every 10 mins:
 ```
 */10 0 * * * bash /path/to/wallpaper-changer.sh
 ```
+
+## Protip
+You can change default wallpapers path by changing "WALLPAPER_PATH" variable in the script. However, avoid using spaces. "find" command on the end of the script has problems with them.
