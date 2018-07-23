@@ -11,7 +11,8 @@ WALLPAPER_PATH="/home/$(whoami)/Pictures/Wallpapers"
 # Add snap binaries to PATH (jq can be installed there) as normally cron has only PATH=/usr/bin
 PATH="$PATH:/snap/bin"
 
-# Need to export current dbus session bus address. Other way gsettings won't work
+# Need to export current dbus session bus address. Other way gsettings won't
+# work. It is responsible for setting up wallpaper and lock screen picture.
 export $(grep -z "DBUS_SESSION_BUS_ADDRESS" /proc/$(pgrep -n gnome-session)/environ)
 # In case above won't work:
 # export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
@@ -29,6 +30,7 @@ if [ ! -d "$WALLPAPER_PATH" ]; then
 fi
 
 cd "$WALLPAPER_PATH"
+# TODO: Remove oldest pictures keeping for example just latest 20 of them.
 
 # Checkout latest picture (skip if exist <- no-clobber option)
 #
