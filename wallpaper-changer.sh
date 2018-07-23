@@ -22,7 +22,7 @@ if [ ! -d "$WALLPAPER_PATH" ]; then
 
     # Download some latest wallpapers from Bing to provide some randomize.
     cd "$WALLPAPER_PATH"
-    # Bing link explanation below the loop.
+    # Bing link parameters explanation is available below.
     for imagelink in $(wget --quiet -O-  'https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=8&mkt=en-AU' | jq -r .images[].url); do
       wget --quiet --no-clobber "https://www.bing.com$imagelink"
     done
