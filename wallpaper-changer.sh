@@ -13,7 +13,8 @@ PATH="$PATH:/snap/bin"
 
 # Need to export current dbus session bus address. Other way gsettings won't
 # work. It is responsible for setting up wallpaper and lock screen picture.
-export $(grep -z "DBUS_SESSION_BUS_ADDRESS" /proc/$(pgrep -n gnome-session)/environ)
+export "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus"
+# $(grep -z "DBUS_SESSION_BUS_ADDRESS" /proc/"$(pgrep -n gnome-session)"/environ)
 # In case above won't work:
 # export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
 
